@@ -52,23 +52,49 @@
                             </a>
                         </li>
 
+
                         @if (Auth::user()->role == 'admin')
-                        <li class="nav-item">
-                            <a class="nav-link @if($name_page == 'Proprietaire') active @endif" 
-                                href="{{url('app/users')}}">
 
-                                <i class="ni ni-planet text-orange"></i>
-                                <span class="nav-link-text">Proprietaires</span>
+                            <li class="nav-item">
 
-                            </a>
-                        </li>
+                                <a class="nav-link 
+                                    @if($name_page == 'Proprietaire' || $name_page == 'Agricole') active @endif" 
+                                    href="#navbar-examples" data-toggle="collapse" 
+                                    role="button" aria-expanded="true" aria-controls="navbar-examples">
+
+                                    <i class="ni ni-planet text-orange"></i>
+                                    <span class="nav-link-text">Utilisateurs</span>
+
+                                </a>
+            
+                                <div class="collapse show" id="navbar-examples" style="">
+                                    <ul class="nav nav-sm flex-column">
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="{{route('app_admin_users_proprietaires')}}">
+                                                <i class="ni ni-single-02 text-yellow"></i>
+                                                Proprietaires
+                                            </a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="">
+                                                <i class="ni ni-single-02 text-info"></i>
+                                                Agricoles
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
                         @endif
 
                         <li class="nav-item">
                             <a class="nav-link @if($name_page == 'Tracteur') active @endif" 
                                 href="{{url('app/tracteurs')}}">
 
-                                <i class="ni ni-pin-3 text-primary"></i>
+                                <i class="ni ni-spaceship text-primary"></i>
                                 <span class="nav-link-text">Tracteurs</span>
 
                             </a>
@@ -252,14 +278,14 @@
                                     <h6 class="text-overflow m-0">Bienvenu!</h6>
                                 </div>
     
-                                <a href="{{url('app/user-profile')}}" class="dropdown-item">
+                                <a href="{{route('app_user_profile')}}" class="dropdown-item">
                                     <i class="ni ni-single-02"></i>
                                     <span>Mon profile</span>
                                 </a>
     
                                 <div class="dropdown-divider"></div>
     
-                                <a href="#!" class="dropdown-item">
+                                <a href="{{url('logout')}}" class="dropdown-item">
                                     <i class="ni ni-user-run"></i>
                                     <span>Déconnexion</span>
                                 </a>
@@ -384,38 +410,6 @@
 
     @include('app.include-js')
 
-
-
-    @if(Session::has('success'))
-    <div class="modal fade show" id="modal-notification" tabindex="-1" role="dialog" 
-        aria-labelledby="modal-notification" aria-hidden="true">    
-
-        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
-            <div class="modal-content bg-gradient-danger">
-                
-                <div class="modal-header">
-                    <h6 class="modal-title" id="modal-title-notification">
-                        Notification</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                
-                <div class="modal-body">
-                    
-                    <div class="py-3 text-center">
-                        <i class="ni ni-bell-55 ni-3x"></i>
-                        <p>{{ Session::get('success') }}</p>
-                    </div>
-                    
-                </div>
-                
-                
-            </div>
-        </div>
-
-    </div>
-    @endif
 
 
 

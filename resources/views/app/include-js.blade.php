@@ -18,6 +18,9 @@
 <script src="{{asset('dashboard/assets/js/argon.js?v=1.2.0')}}"></script>
 
 
+<script src="{{asset('assets/js/plugins/jquery.validate.min.js')}}"></script>
+
+
 
 
 <script>
@@ -49,5 +52,77 @@
     });
 
 
+</script>
+
+
+
+<script>
+
+    $(document).ready(function(){
+    
+        // Code for the Validator
+        var $validator = $('#user-update').validate({
+
+
+            rules: {
+    
+                email: {
+                    email: true,
+                    required: true,
+                    minlength: 3,
+                },
+    
+                name: {
+                    required: true,
+                    minlength: 8,
+                },
+
+                telephone: {
+                    required: true,
+                    minlength: 8,
+                    number: true
+                },
+
+                sexe: {
+                    required: true,
+                },
+
+                age: {
+                    required: true,
+                    number:true,
+                    max: 100,
+                    min: 20
+                },
+
+                localite: {
+                    required: true,
+                },
+    
+    
+    
+            },
+    
+            highlight: function(element) {
+                $(element).parent('div').parent('div').removeClass('has-success').addClass('has-danger');
+            },
+    
+            success: function(element) {
+                $(element).parent('div')
+                    .removeClass('has-error')
+                    .addClass('has-success');
+
+                $(element).parent('div').children('.error').remove();
+            },
+    
+            errorPlacement : function(error, element) {
+                $(element).parent('div').append(error);
+                $(element).parent('div').removeClass('has-success').addClass('has-error');
+                $(element).parent('div').addClass('has-danger');
+            }
+    
+        });
+    
+    });
+    
 </script>
 

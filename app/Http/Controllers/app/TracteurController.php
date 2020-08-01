@@ -20,10 +20,23 @@ class TracteurController extends Controller
 
     public function index() {
 
-        $tracteurs = Tracteur::all();
+        $tracteurs;
+
+        if(Auth::user()->role == 'admin') {
+
+            $tracteurs = Tracteur::all();
+
+        } elseif(Auth::user()->role == 'proprietaire'){
+
+            $tracteurs = Tracteur::where('user_id', ''.Auth::id())->get();
+        } 
+
+        dump(Auth::user()->unreadNotifications).die();
+
 
         return view('app.tracteurs', array(
-                "name_page" => "Tracteur"
+                "name_page" => "Tracteur",
+                "notification" => Auth::user()->unreadNotifications
             ), 
             compact('tracteurs')
         );

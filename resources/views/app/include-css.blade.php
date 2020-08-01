@@ -10,3 +10,5 @@
 <!-- Page plugins -->
 <!-- Argon CSS -->
 <link rel="stylesheet" href="{{asset('dashboard/assets/css/argon.css?v=1.2.0')}}" type="text/css">
+
+<link href="{{asset('style.css')}}" rel="stylesheet" />

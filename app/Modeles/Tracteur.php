@@ -30,7 +30,7 @@ class Tracteur extends Model
 
 
 
-    public function tracteur()
+    public function user_add()
     {
         return $this->belongsTo('App\User', 'user_id');
     }

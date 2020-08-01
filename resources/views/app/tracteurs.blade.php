@@ -22,6 +22,22 @@
                             
                     </div>
 
+                    @if(Session::has('success'))
+                    <div class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+
+                        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+                        <span class="alert-text">
+                            <strong>Success!</strong> 
+                            {{ Session::get('success') }}
+                        </span>
+
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+
+                    </div>
+                    @endif
+
 
 
                 </div>
@@ -32,6 +48,9 @@
 
                         <thead class="thead-light">
                             <tr>
+                                @if (Auth::user()->role == 'admin')
+                                    <th scope="col" class="sort" data-sort="budget">Propriétaire</th>
+                                @endif
                                 <th scope="col" class="sort" data-sort="budget">Marque</th>
                                 <th scope="col" class="sort" data-sort="status">Modèle</th>
                                 <th scope="col">Puissance</th>
@@ -44,6 +63,10 @@
 
                             @foreach ($tracteurs as $tracteur)
                             <tr>
+
+                                @if (Auth::user()->role == 'admin')
+                                    <td class="budget">{{$tracteur->user_add->name}}</td>
+                                @endif
 
                                 <td class="budget">{{$tracteur->marque}}</td>
 
@@ -203,6 +226,9 @@
 
 
                                 <div class="form-group mb-3">
+                                    <label class="form-control-label" for="input-address">
+                                        Marque
+                                    </label>
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <input class="form-control" placeholder="Marque" type="text" name="marque" 
                                             id="marque-upadate">
@@ -210,6 +236,9 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="form-control-label" for="input-address">
+                                        Modèle
+                                    </label>
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <input class="form-control" placeholder="Modèle" type="text" name="modele" 
                                             id="modele-upadate">
@@ -217,6 +246,9 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="form-control-label" for="input-address">
+                                        Puissance
+                                    </label>
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <input class="form-control" placeholder="Puissance" type="number" name="type" 
                                             id="type-upadate">
@@ -256,6 +288,7 @@
                                 <span>Enregistrer un nouveau tracteur</span>
                             </div>
                         </div>
+                        
 
                         <div class="card-body px-lg-5 py-lg-5">
                             <form role="form" id="updateForm" action="{{route('app_add_tracteurs')}}" method="POST">
@@ -263,6 +296,9 @@
                                 {{ csrf_field() }}
 
                                 <div class="form-group mb-3">
+                                    <label class="form-control-label" for="input-address">
+                                        Marque
+                                    </label>
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <input class="form-control" placeholder="Marque" type="text" name="marque" 
                                             id="marque">
@@ -270,6 +306,9 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="form-control-label" for="input-address">
+                                        Modèle
+                                    </label>
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <input class="form-control" placeholder="Modèle" type="text" name="modele" 
                                             id="modele">
@@ -277,6 +316,9 @@
                                 </div>
 
                                 <div class="form-group">
+                                    <label class="form-control-label" for="input-address">
+                                        Puissance
+                                    </label>
                                     <div class="input-group input-group-merge input-group-alternative">
                                         <input class="form-control" placeholder="Puissance" type="number" name="type" 
                                             id="type">

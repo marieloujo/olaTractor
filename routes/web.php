@@ -24,7 +24,10 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('dashboard', 'app\DashboardController@index')->name("app_accueil");
 
         
-        Route::get('user-profile', 'app\UserController@profile')->name("app_user_profile");
+        Route::get('profile', 'app\UserController@profile')->name("app_user_profile");
+        Route::post('profile/update', 'app\UserController@upadate_profile')->name("app_user_profile_update");
+
+
 
         Route::get('tracteurs', 'app\TracteurController@index')->name("app_tracteurs");
         Route::post('tracteurs/add', 'app\TracteurController@store')->name("app_add_tracteurs");
@@ -34,9 +37,9 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('tracking/{idTracteur}', 'app\TracteurController@tracking')->name("app_tracking");
 
 
-        Route::group(['middleware' => 'isAdmin'], function() {
+        Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function() {
 
-            Route::get('users', 'app\UserController@index')->name("app_users");
+            Route::get('users/proprietaires', 'app\UserController@proprietaire')->name("app_admin_users_proprietaires");
 
         });
 
@@ -50,3 +53,6 @@ Route::resource('/tractors','app\TracteurRessourceController');
 
 
 Auth::routes();
+
+
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
