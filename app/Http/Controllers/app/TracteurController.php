@@ -31,7 +31,7 @@ class TracteurController extends Controller
             $tracteurs = Tracteur::where('user_id', ''.Auth::id())->get();
         } 
 
-        dump(Auth::user()->unreadNotifications).die();
+        //dump(Auth::user()->unreadNotifications).die();
 
 
         return view('app.tracteurs', array(
@@ -41,6 +41,23 @@ class TracteurController extends Controller
             compact('tracteurs')
         );
 
+    }
+
+
+
+    public function findbyUser($idUser)
+    {
+
+        $tracteurs = Tracteur::where('user_id', ''.$idUser)->get();
+       
+        return view('app.tracteurs', array(
+                "name_page" => "Tracteur",
+                "notification" => Auth::user()->unreadNotifications
+            ), 
+            compact('tracteurs')
+        );
+
+        
     }
 
 

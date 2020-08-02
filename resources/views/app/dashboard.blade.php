@@ -7,9 +7,9 @@
 @section('statistique')
 
 
-@if (Auth::user()->role == 'admin')
 <div class="row">
 
+    @if (Auth::user()->role == 'admin')
     <div class="col-xl-3 col-md-6">
         <div class="card card-stats">
 
@@ -20,9 +20,9 @@
 
                     <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des uitlisateurs
+                            Les uitlisateurs
                         </h5>
-                        <span class="h2 font-weight-bold mb-0">350,897</span>
+                        <span class="h2 font-weight-bold mb-0">{{$users}}</span>
                     </div>
 
                     <div class="col-auto">
@@ -46,23 +46,19 @@
             <div class="card-body">
 
                 <div class="row">
-
                     <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des propriétaires
+                            Les propriétaires
                         </h5>
-                        <span class="h2 font-weight-bold mb-0">2,356</span>
+                        <span class="h2 font-weight-bold mb-0">{{$agricoles}}</span>
                     </div>
-
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-orange text-white 
                             rounded-circle shadow">
                             <i class="ni ni-chart-pie-35"></i>
                         </div>
                     </div>
-
                 </div>
-                
 
             </div>
 
@@ -78,9 +74,9 @@
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des agricoles
+                            Les agricoles
                         </h5>
-                        <span class="h2 font-weight-bold mb-0">924</span>
+                        <span class="h2 font-weight-bold mb-0">{{$proprietaires}}</span>
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-green text-white 
@@ -94,6 +90,7 @@
 
         </div>
     </div>
+    @endif
 
     <div class="col-xl-3 col-md-6">
         <div class="card card-stats">
@@ -103,9 +100,9 @@
                 <div class="row">
                     <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des tracteurs
+                            Les tracteurs
                         </h5>
-                        <span class="h2 font-weight-bold mb-0">49,65%</span>
+                        <span class="h2 font-weight-bold mb-0">{{$tracteurs}}</span>
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-info text-white 
@@ -119,87 +116,10 @@
         </div>
     </div>
 
-    <div class="col-xl-3 col-md-6">
-        <div class="card card-stats">
-            <!-- Card body -->
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des tracteurs en locations
-                        </h5>
-                        <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-info text-white 
-                            rounded-circle shadow">
-                            <i class="ni ni-chart-bar-32"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 </div>
-@endif
 
 
-@if (Auth::user()->role == 'proprietaire')
-<div class="row">
-
-    <div class="col-xl-3 col-md-6">
-        <div class="card card-stats">
-            <!-- Card body -->
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des tracteurs
-                        </h5>
-                        <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-red text-white 
-                            rounded-circle shadow">
-                            <i class="ni ni-active-40"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-    <div class="col-xl-3 col-md-6">
-        <div class="card card-stats">
-            <!-- Card body -->
-            <div class="card-body">
-
-                <div class="row">
-                    <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">
-                            Totale des tracteurs en locations
-                        </h5>
-                        <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                        <div class="icon icon-shape bg-gradient-info text-white 
-                            rounded-circle shadow">
-                            <i class="ni ni-chart-bar-32"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-
-</div>
-@endif
 
     
 @endsection

@@ -12,7 +12,18 @@
 
                 <!-- Card header -->
                 <div class="card-header border-0">
-                    <h3 class="mb-0">Light table</h3>
+
+                    <div class="row">
+
+                        <h3 class="mb-0">
+                            @if($name_page == 'Proprietaire') Liste des Proprietaires @endif
+                            @if($name_page == 'Agricoles') Liste des Agricoles @endif
+                        </h3>
+
+                        <button class="btn btn-md btn-primary ml-auto">Exporter en excel</button>
+                            
+                    </div>
+
                 </div>
 
                 <!-- Light table -->
@@ -21,57 +32,41 @@
 
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col" class="sort" data-sort="name">Project</th>
-                                <th scope="col" class="sort" data-sort="budget">Budget</th>
-                                <th scope="col" class="sort" data-sort="status">Status</th>
-                                <th scope="col">Users</th>
-                                <th scope="col" class="sort" data-sort="completion">Completion</th>
+                                <th scope="col" class="sort" data-sort="name">Nom et prénom</th>
+                                <th scope="col" class="sort" data-sort="budget">Age</th>
+                                <th scope="col" class="sort" data-sort="status">Numéro de téléphone</th>
+                                <th scope="col">Adresse email</th>
+                                <th scope="col" class="sort" data-sort="completion">Localité</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
 
                         <tbody class="list">
 
+                            @foreach ($users as $user)
                             <tr>
 
                                 <th scope="row">
                                     <div class="media align-items-center">
                                         <div class="media-body">
                                             <span class="name mb-0 text-sm">
-                                                Argon Design System
+                                                {{$user->name}}
                                             </span>
                                         </div>
                                     </div>
                                 </th>
 
-                                <td class="budget">$2500 USD</td>
+                                <td class="budget">{{$user->age}}</td>
 
                                 <td>
                                     <span class="badge badge-dot mr-4">
-                                        <i class="bg-warning"></i>
-                                        <span class="status">pending</span>
+                                        <span class="status">{{$user->telephone}}</span>
                                     </span>
                                 </td>
 
-                                <td>
-                                    <div class="avatar-group">
-                                    </div>
-                                </td>
+                                <td>{{$user->email}}</td>
 
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="completion mr-2">60%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-warning" 
-                                                    role="progressbar" aria-valuenow="60" 
-                                                    aria-valuemin="0" aria-valuemax="100" 
-                                                    style="width: 60%;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
+                                <td>{{$user->localite->libelle}}</td>
 
                                 <td class="text-right">
                                     <div class="dropdown">
@@ -79,134 +74,30 @@
                                             <i class="fas fa-ellipsis-v"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{url('app/user-profile')}}">Profile</a>
-                                            <a class="dropdown-item" href="{{url('app/tracteurs')}}">Tracteurs</a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" 
-                                                data-target="#modal-notification">Désactivé
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>
 
-                            </tr>
-
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <span class="name mb-0 text-sm">Angular Now UI Kit PRO</span>
-                                        </div>
-                                    </div>
-                                </th>
-
-                                <td class="budget">
-                                    $1800 USD
-                                </td>
-
-                                <td>
-                                    <span class="badge badge-dot mr-4">
-                                    <i class="bg-success"></i>
-                                    <span class="status">completed</span>
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <div class="avatar-group">
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <span class="completion mr-2">100%</span>
-                                        <div>
-                                            <div class="progress">
-                                                <div class="progress-bar bg-success" role="progressbar" 
-                                                    aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" 
-                                                    style="width: 100%;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" 
-                                            role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{url('app/user-profile')}}">
+                                            <a class="dropdown-item" href="{{route('app_admin_user_profile', $user->id)}}">
                                                 Profile
                                             </a>
-                                            <a class="dropdown-item" href="{{url('app/tracteurs')}}">
-                                                Tracteurs
-                                            </a>
+
+                                            @if ($user->role == 'proprietaire')
+                                                <a class="dropdown-item" href="{{route('app_admin_tracteurs_by_user', $user->id)}}">
+                                                    Tracteurs
+                                                </a>
+                                                <a class="dropdown-item" target="_blank" href="{{route('app_admin_user_pieces', $user->id)}}">
+                                                    Pièces fournies
+                                                </a>
+                                            @endif
+
                                             <a class="dropdown-item" href="#" data-toggle="modal" 
                                                 data-target="#modal-notification">Désactivé
                                             </a>
+
                                         </div>
                                     </div>
                                 </td>
+
                             </tr>
-
-                            <tr>
-                                <th scope="row">
-                                    <div class="media align-items-center">
-                                        <div class="media-body">
-                                            <span class="name mb-0 text-sm">Black Dashboard</span>
-                                        </div>
-                                    </div>
-                                </th>
-
-                                <td class="budget">
-                                    $3150 USD
-                                </td>
-
-                                <td>
-                                    <span class="badge badge-dot mr-4">
-                                    <i class="bg-danger"></i>
-                                    <span class="status">delayed</span>
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <div class="avatar-group">
-                                    </div>
-                                </td>
-
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                    <span class="completion mr-2">72%</span>
-                                    <div>
-                                        <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100" style="width: 72%;"></div>
-                                        </div>
-                                    </div>
-                                    </div>
-                                </td>
-
-                                <td class="text-right">
-                                    <div class="dropdown">
-                                        <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" 
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i class="fas fa-ellipsis-v"></i>
-                                        </a>
-                                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                            <a class="dropdown-item" href="{{url('app/user-profile')}}">
-                                                Profile
-                                            </a>
-                                            <a class="dropdown-item" href="{{url('app/tracteurs')}}">
-                                                Tracteurs
-                                            </a>
-                                            <a class="dropdown-item" href="#" data-toggle="modal" 
-                                                data-target="#modal-notification">Désactivé
-                                            </a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
+                            @endforeach
 
                         </tbody>
 
@@ -266,14 +157,11 @@
 
                         <div class="card-header bg-transparent pb-1">
                             <div class="text-muted text-center mt-1 mb-1">
-                                <span>Enregistrer un nouveau propriétaire</span>
+                                <span>Enregistrer un nouveau utilisateur</span>
                             </div>
                         </div>
 
                         <div class="card-body px-lg-5 py-lg-5">
-                            <div class="text-center text-muted mb-4">
-                                <small>Or sign in with credentials</small>
-                            </div>
                             <form role="form">
 
                                 {{ csrf_field() }}
@@ -315,6 +203,37 @@
             </div>
         </div>
 
+    </div>
+
+
+
+    <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog" aria-labelledby="modal-notification" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content bg-gradient-danger">
+                
+                <div class="modal-header">
+                    <h6 class="modal-title" id="modal-title-notification">Attention !!</h6>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                
+                <div class="modal-body">
+                    
+                    <div class="py-3 text-center">
+                        <i class="ni ni-bell-55 ni-3x"></i>
+                        <h4 class="heading mt-4">Etes vous certain d'effectuer cette action!</h4>
+                    </div>
+                    
+                </div>
+                
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white">Oui, Désactivé</button>
+                    <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Annuler</button>
+                </div>
+                
+            </div>
     </div>
 
 

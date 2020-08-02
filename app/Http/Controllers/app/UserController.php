@@ -60,6 +60,22 @@ class UserController extends Controller
     }
 
 
+
+
+    public function profilebyUser(Request $request, $idUser) {
+
+
+        return view('app.user-profile', array(
+                "name_page" => "Profile",
+                "user" => User::where('id', $idUser)->first()
+            )
+        );
+
+    }
+
+
+
+
     public function upadate_profile(Request $request) {
 
         User::where('id', Auth::id())
@@ -76,5 +92,30 @@ class UserController extends Controller
         return redirect()->back();
 
     }
+
+
+
+    public function pieces_fournir(Request $request, $idUser) {
+
+        $user = User::find($idUser);
+        $pieces = [];
+
+
+        array_push($pieces, public_path().'/pieces_fournir/'.$user->acte_naissance);
+        array_push($pieces, public_path().'/pieces_fournir/'.$user->certificat_nationalite);
+        array_push($pieces, public_path().'/pieces_fournir/'.$user->carte_identite);
+
+        return response()->file($pieces);
+
+        foreach ($pieces as $key => $piece) {
+
+            return response()->files($piece);
+            
+        }
+
+
+
+    }
+
 
 }

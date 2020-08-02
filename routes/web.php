@@ -37,11 +37,18 @@ Route::group(['middleware' => 'auth'], function() {
         Route::get('tracking/{idTracteur}', 'app\TracteurController@tracking')->name("app_tracking");
 
 
+
         Route::group(['middleware' => 'isAdmin', 'prefix' => 'admin'], function() {
 
             Route::get('users/proprietaires', 'app\UserController@proprietaire')->name("app_admin_users_proprietaires");
+            Route::get('users/agricoles', 'app\UserController@agricoles')->name("app_admin_users_agricoles");
+            Route::get('users/profile/{idUser}', 'app\UserController@profilebyUser')->name("app_admin_user_profile");
+            Route::get('users/pieces/{idUser}', 'app\UserController@pieces_fournir')->name("app_admin_user_pieces");
+
+            Route::get('tracteurs/{idUser}', 'app\TracteurController@findbyUser')->name("app_admin_tracteurs_by_user");
 
         });
+
 
     });
 

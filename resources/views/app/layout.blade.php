@@ -58,7 +58,7 @@
                             <li class="nav-item">
 
                                 <a class="nav-link 
-                                    @if($name_page == 'Proprietaire' || $name_page == 'Agricole') active @endif" 
+                                    @if($name_page == 'Proprietaire' || $name_page == 'Agricoles') active @endif" 
                                     href="#navbar-examples" data-toggle="collapse" 
                                     role="button" aria-expanded="true" aria-controls="navbar-examples">
 
@@ -78,7 +78,7 @@
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="">
+                                            <a class="nav-link" href="{{route('app_admin_users_agricoles')}}">
                                                 <i class="ni ni-single-02 text-info"></i>
                                                 Agricoles
                                             </a>
