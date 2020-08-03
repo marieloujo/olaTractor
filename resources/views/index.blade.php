@@ -141,10 +141,10 @@
                                 <div class="icon icon-shape bg-warning shadow rounded-circle text-primary">
                                     <i class="ni ni-satisfied text-white"></i>
                                 </div>
-                                <h5 class="info-title">Best Quality</h5>
+                                <h5 class="info-title">Lorem ipsum </h5>
                                 <p class="description opacity-8">
-                                    It becomes harder for us to give others a hand. 
-                                    We get our heart broken by people we love.</p>
+                                  Sed porta, diam eget faucibus efficitur, justo mi pretium risus,
+                                  ac semper velit risus vitae velit.</p>
                             </div>
                         </div>
 
@@ -153,10 +153,10 @@
                                 <div class="icon icon-shape bg-info shadow rounded-circle text-primary">
                                     <i class="ni ni-palette text-white"></i>
                                 </div>
-                                <h5 class="info-title">Awesome Design</h5>
+                                <h5 class="info-title">Pellentesque laoreet</h5>
                                 <p class="description opacity-8">
-                                    As we live, our hearts turn colder. 
-                                    Cause pain is what we go through as we become older.</p>
+                                    Sed porta, diam eget faucibus efficitur, justo mi pretium risus,
+                                    ac semper velit risus vitae velit.</p>
                             </div>
                         </div>
 
@@ -165,10 +165,10 @@
                                 <div class="icon icon-shape bg-danger shadow rounded-circle text-primary">
                                     <i class="ni ni-user-run text-white"></i>
                                 </div>
-                                <h5 class="info-title">Fast Development</h5>
+                                <h5 class="info-title">Donec pretium</h5>
                                 <p class="description opacity-8">
-                                  We’re not always in the position that we want to be at. 
-                                  We’re constantly growing.</p>
+                                  Sed porta, diam eget faucibus efficitur, justo mi pretium risus,
+                                    ac semper velit risus vitae velit.</p>
                             </div>
                         </div>
 
@@ -187,14 +187,15 @@
 
             <div class="col-lg-5 col-12 mt-lg-5">
 
+
+              <p class="lead pb-4">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Sed luctus bibendum ante, at auctor massa vestibulum in. 
+            </p>
+
               <h1 class="display-3">
                   Composer le,<span class="text-primary"> *133*68#</span>
               </h1>
-             
-              <p class="lead pb-4">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                  Sed luctus bibendum ante, at auctor massa vestibulum in. 
-              </p>
 
             </div>
 
@@ -210,8 +211,8 @@
         <div class="container mt-5">
           <div class="row">
             <div class="col-md-12 text-center mb-5">
-              <h1 class="display-1">Got a question?</h1>
-              <h3 class="lead">We'd like to talk more about what you need</h3>
+              <h2 class="display-1">Une question ?</h2>
+              <h3 class="lead">N'hésitez pas à nous solliciter</h3>
             </div>
           </div>
           <div class="row">
@@ -221,7 +222,7 @@
                   <i class="ni ni-square-pin"></i>
                 </div>
                 <h4 class="info-title">Address</h4>
-                <p class="description px-0">12124 First Street, nr 54</p>
+                <p class="description px-0">12124 Cotonou, Cadjehoun</p>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-6">
@@ -230,7 +231,10 @@
                   <i class="ni ni-email-83"></i>
                 </div>
                 <h4 class="info-title">Email</h4>
-                <p class="description px-0"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="89e1ece5e5e6c9ece4e8e0e5a7eae6e4">[email&#160;protected]</a></p>
+                <p class="description px-0">
+                  <a href="#" >
+                    contact@olatractor.com</a>
+                  </p>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-6">
@@ -238,8 +242,8 @@
                 <div class="icon icon-shape icon-shape-primary icon-lg shadow rounded-circle text-primary">
                   <i class="ni ni-mobile-button"></i>
                 </div>
-                <h4 class="info-title">Phone</h4>
-                <p class="description px-0">+1(424) 535 3523</p>
+                <h4 class="info-title">Télephone</h4>
+                <p class="description px-0">(+000) 00 00 00 00</p>
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-6">
@@ -248,7 +252,7 @@
                   <i class="ni ni-circle-08"></i>
                 </div>
                 <h4 class="info-title">Contact</h4>
-                <p class="description px-0">Andrew Samian</p>
+                <p class="description px-0">Ola Tractor</p>
               </div>
             </div>
           </div>
@@ -265,13 +269,13 @@
                   <div class="col-lg-12 col-md-7 pr-md-0">
                     <form role="form" class="p-3" id="contact-form" method="post">
                       <div class="card-header">
-                        <h4 class="card-title">Send us a message</h4>
+                        <h4 class="card-title">Envoyer un message</h4>
                       </div>
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>First name</label>
+                              <label>Nom</label>
                               <div class="input-group">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="ni ni-circle-08"></i></span>
@@ -282,7 +286,7 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label>Last name</label>
+                              <label>Prénom</label>
                               <div class="input-group">
                                 <div class="input-group-prepend">
                                   <span class="input-group-text"><i class="ni ni-collection"></i></span>
@@ -293,7 +297,7 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label>Email address</label>
+                          <label>Email</label>
                           <div class="input-group">
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="ni ni-email-83"></i></span>
@@ -302,19 +306,14 @@
                           </div>
                         </div>
                         <div class="form-group">
-                          <label>Your message</label>
+                          <label>Votre message</label>
                           <textarea name="message" class="form-control" id="message" rows="6"></textarea>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
-                            <div class="custom-control custom-checkbox mb-3">
-                              <input class="custom-control-input" id="customCheck2" type="checkbox">
-                              <label class="custom-control-label" for="customCheck2">
-                                <span>I'm not a robot</span>
-                            </div>
                           </div>
                           <div class="col-md-6">
-                            <button type="submit" class="btn btn-info pull-right">Send Message</button>
+                            <button type="submit" class="btn btn-info pull-right">Envoyer</button>
                           </div>
                         </div>
                       </div>

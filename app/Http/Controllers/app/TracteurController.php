@@ -11,6 +11,8 @@ use App\Modeles\Tracteur;
 use App\Modeles\Localite;
 
 use Carbon\Carbon;
+use App\Exports\TracteursExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 
 
@@ -108,6 +110,13 @@ class TracteurController extends Controller
     }
 
 
+    public function export() {
+
+        return Excel::download(new TracteursExport, 'tracteurs.xlsx');
+
+    }
+
+
 
 
 
@@ -189,15 +198,15 @@ class TracteurController extends Controller
                 if($hours != 0) {
                     $vitesse = $distance/$hours . 'km/h';
                 } elseif($munites != 0) {
-                    $vitesse = $distance/$munites . 'km/h';
+                    $vitesse = $distance/$munites . ' km/h';
                 } else {
-                    $vitesse = $distance/$seconds . 'km/h';
+                    $vitesse = $distance/$seconds . ' km/h';
                 }
                     
 
                 $value[] = [
                     'date' => $index[0]->date, //Carbon::parse($index[0]->time)->diffForHumans(),
-                    'distance' => $distance .'Km',
+                    'distance' => $distance .' Km',
                     'temps' => $kj,
                     'vitesse' => $vitesse
                 ];

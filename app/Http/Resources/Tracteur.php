@@ -23,7 +23,7 @@ class Tracteur extends JsonResource
             'modele' => $this->modele,
             'marque' => $this->marque,
             'type' => $this->type,
-            'proprietaire' => new UserResource($this->users_add),
+            'proprietaire' => new UserResource($this->user_add),
             'locataires' => UserResource::Collection($this->users_louer) 
         ];
     }

@@ -33,6 +33,9 @@ Route::group(['middleware' => 'auth'], function() {
         Route::post('tracteurs/add', 'app\TracteurController@store')->name("app_add_tracteurs");
         Route::post('tracteurs/update/{id}', 'app\TracteurController@update')->name("app_update_tracteurs");
         Route::post('tracteurs/delete/{id}', 'app\TracteurController@destroy')->name("app_delete_tracteurs");
+        
+        Route::get('tracteurs/export', 'app\TracteurController@export')->name("app_tracteurs_export");
+
 
         Route::get('tracking/{idTracteur}', 'app\TracteurController@tracking')->name("app_tracking");
 

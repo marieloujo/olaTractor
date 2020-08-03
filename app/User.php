@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -16,7 +17,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name' , 'age',  'email', 'password', 'sexe', 'telephone', 'role',
+        'certificat_nationalite', 'acte_naissance', 'carte_identite', 'id_localite'
     ];
 
     /**
@@ -25,7 +27,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'created_at', 'updated_at', 'password', 'remember_token', 'age',  'email', 
+        'lieu_naissance', 'sexe', 'telephone', 'certificat_nationalite', 'acte_naissance', 
+        'carte_identite', 'email_verified_at', 'role'
     ];
 
     /**
@@ -38,6 +42,16 @@ class User extends Authenticatable
     ];
 
 
+    public function generateToken()
+    {
+        $this->api_token = Str::random(60);
+        $this->save();
+
+        return $this->api_token;
+    }
+    
+
+
     public function localite()
     {
         return $this->belongsTo('App\Modeles\Localite', 'id_localite');
@@ -47,13 +61,13 @@ class User extends Authenticatable
 
     public function tracteurs_add()
     {
-        return $this->belongsTo('App\Tracteurs');
+        return $this->belongsTo('App\Modeles\Tracteur');
     }
 
 
     public function tracteurs_louer()
     {
-        return $this->belongsToMany('App\Tracteurs', 'louer', 'utilisateur_id', 'tracteur_id')
+        return $this->belongsToMany('App\Modeles\Tracteur', 'louer', 'utilisateur_id', 'tracteur_id')
                     ->withPivot('id', 'is_paie', 'is_valid' , 'date_emprunt', 'date_retour');
     }
 

@@ -25,6 +25,8 @@
                     <form method="POST" id="login-form" action="{{ route('login') }}">
                         @csrf
 
+                        <input type="hidden" name="hidden" value="web_authentifition">
+
                         <div class="form-group mb-3 @error('email') has-error @enderror">
 
                             <div class="input-group input-group-alternative">

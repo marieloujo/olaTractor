@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Resources\Tracteur as TracteurResource;
 use App\User;
-use App\Tracteurs;
+use App\Modeles\Tracteur;
 use App\Modeles\Localite;
 use App\Modeles\Tracking;
 
@@ -24,7 +24,7 @@ class TracteurController extends Controller
 
     public function index()
     {
-        return  TracteurResource::Collection(Tracteurs::all());
+        return  TracteurResource::Collection(Tracteur::all());
     }
 
 

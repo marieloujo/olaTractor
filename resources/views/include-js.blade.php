@@ -82,7 +82,91 @@
 </script>
 
 
-@yield('other-js')
+<script>
+
+    $(document).ready(function(){
+    
+        // Code for the Validator
+        var $validator = $('#inscription').validate({
+
+
+            rules: {
+    
+                name: {
+                    required: true,
+                    minlength: 3
+                },
+            
+                age: {
+                    required: true,
+                    min: 20, 
+                    max: 100
+                },
+                
+                email: {
+                    required: true,
+                    minlength: 3,
+                    email: true
+                },
+
+                telephone: {
+                    required: true,
+                    minlength: 8,
+                },
+
+                sexe: {
+                    required: true,
+                },
+
+                localite: {
+                    required: true,
+                },
+
+                acte_naissance: {
+                    required: true,
+                },
+
+                certificat_nationalite: {
+                    required: true,
+                },
+
+                carte_identite: {
+                    required: true,
+                },
+
+                password: {
+                    required: true,
+                    minlength: 8,
+                },
+    
+    
+    
+            },
+    
+            highlight: function(element) {
+                $(element).parent('div').removeClass('has-success').addClass('has-danger');
+            },
+    
+            success: function(element) {
+                $(element).parent('div').children('.has-danger')
+                    .removeClass('has-error')
+                    .removeClass('has-danger')
+                    .addClass('has-success');
+
+                $(element).parent('div').children('.error').remove();
+            },
+    
+            errorPlacement : function(error, element) {
+                $(element).parent('div').parent('div').append(error);
+            }
+    
+        });
+    
+    });
+    
+</script>
+
+
 
 
 <script src="{{asset('assets/js/plugins/jquery.validate.min.js')}}"></script>

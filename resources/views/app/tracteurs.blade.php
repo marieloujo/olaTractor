@@ -16,9 +16,9 @@
                     <div class="row">
                         <h3 class="mb-0 my-auto">Liste des tracteurs</h3>
 
-                        <button class="btn btn-md btn-primary ml-auto" data-toggle="modal" 
-                            data-target="#modal-new-user">Exporter en excel
-                        </button>
+                        <a href="{{route('app_tracteurs_export')}}" class="btn btn-md btn-primary ml-auto">
+                            Exporter en excel
+                        </a>
                             
                     </div>
 

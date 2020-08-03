@@ -44,6 +44,35 @@ class LoginController extends Controller
     }
 
 
+
+
+    public function login(Request $request)
+    {
+        $this->validateLogin($request);
+
+        if ($this->attemptLogin($request)) {
+
+            if($request->input('hidden') != null) {
+
+                return $request->wantsJson()
+                    ? new Response('', 201)
+                    : redirect($this->redirectPath());
+
+            } else {
+
+                $user = $this->guard()->user();
+                $user->generateToken();
+
+                return response()->json($user);
+                
+            }
+        }
+
+        return $this->sendFailedLoginResponse($request);
+    }
+    
+
+
     public function logout(Request $request) {
         Auth::logout();
         return redirect('/login');

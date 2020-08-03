@@ -7,8 +7,8 @@
         <div class="row row-grid align-items-center mb-5">
 
             <div class="col-lg-6">
-                <h3 class="text-primary font-weight-light mb-2">Thank you for supporting us!</h3>
-                <h4 class="mb-0 font-weight-light">Let's get in touch on any of these platforms.</h4>
+                <h3 class="text-primary font-weight-light mb-2">Donec aliquam ac nisi ut feugiat!</h3>
+                <h4 class="mb-0 font-weight-light">Donec pretium ligula sit amet purus eleifend.</h4>
             </div>
 
             <div class="col-lg-6 text-lg-center btn-wrapper">
@@ -55,23 +55,21 @@
 
             <div class="col-md-6">
                 <div class="copyright">
-                    &copy; 2020 <a href="" target="_blank">Creative Tim</a>.
+                    &copy; 2020 <a href="" target="_blank">Ola Tractor</a>.
                 </div>
             </div>
 
             <div class="col-md-6">
                 <ul class="nav nav-footer justify-content-end">
                     <li class="nav-item">
-                        <a href="" class="nav-link" target="_blank">Creative Tim</a>
+                        <a href="" class="nav-link" target="_blank">Ola Tractor</a>
                     </li>
                     <li class="nav-item">
-                        <a href="" class="nav-link" target="_blank">About Us</a>
+                        <a href="" class="nav-link" target="_blank">A propos</a>
                     </li>
                     <li class="nav-item">
-                        <a href="https://www.creative-tim.com/blog" class="nav-link" target="_blank">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="" class="nav-link" target="_blank">License</a>
+                        <a href="https://www.creative-tim.com/blog" 
+                        class="nav-link" target="_blank">Nous contacter</a>
                     </li>
                 </ul>
             </div>
