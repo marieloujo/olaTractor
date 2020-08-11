@@ -169,34 +169,38 @@
 
 
 
-    <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modal-deleteLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
 
+
+    <div class="modal fade" id="modal-delete" tabindex="-1" role="dialog" aria-labelledby="modal-delete" 
+        aria-hidden="true">
+        <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content bg-gradient-danger">
+                
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-deleteLabel">Suppression</h5>
+                    <h6 class="modal-title" id="modal-title-delete">Attention !!</h6>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">×</span>
                     </button>
                 </div>
-
+                
                 <form action="" method="POST" id="deleteForm">
                     {{  csrf_field() }}
-
-                    <div class="modal-body text-center">
-                        <h4 class="heading mt-4">Voullez-vous effectuer cette action?</h4>
-                        <p>Vous ne pourrez plus restorer si vous supprimer.</p>
+                    <div class="modal-body">
+                        
+                        <div class="py-3 text-center">
+                            <i class="ni ni-bell-55 ni-3x"></i>
+                            <h4 class="heading mt-4">Etes vous certain d'effectuer cette action!</h4>
+                            <p>Vous ne pourrez plus restorer si vous supprimer.</p>
+                        </div>
+                        
                     </div>
-
+                    
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                            Anuler
-                        </button>
-                        <button type="button" class="btn btn-primary">Oui, Supprimer</button>
+                        <button type="submit" class="btn btn-white">Oui, Supprimer</button>
+                        <button type="button" class="btn btn-link text-white ml-auto" data-dismiss="modal">Annuler</button>
                     </div>
-
                 </form>
-
+                
             </div>
         </div>
     </div>

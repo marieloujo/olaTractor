@@ -259,6 +259,16 @@
         </div>
     </div>
 
+    <div class="row mt-5 mb-4 pt-5">
+      <div class="col-md-8 ml-auto mr-auto text-center mt-5">
+        <span class="badge badge-info">Envoyer un message</span>
+        <h1 class="title">N'hésitez pas à nous <b>solliciter</b></h1>
+        <h4 class="desc">
+          Vous souhaitez des renseignements sur nos offres? 
+          Vous avez besoin de conseils sur une expertise?</h4>
+      </div>
+    </div>
+
 
     <div class="contactus-4 mt-5">
         <div class="container">
